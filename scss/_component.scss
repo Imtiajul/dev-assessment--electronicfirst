@@ -1,0 +1,187 @@
+.header-area {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-content: baseline;
+  justify-content: space-between;
+
+  .logo {
+    max-width: 10rem;
+
+    img {
+      max-width: 22rem;
+    }
+  }
+
+  .nav-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    * {
+      list-style: none;
+      display: flex;
+      text-decoration: none;
+      color: #000;
+    }
+
+    &__top-nav {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+
+      li:not(:last-child) {
+        margin-right: 2.5rem;
+      }
+
+      a {
+        color: var(--color-grey-dark-1);
+      }
+    }
+
+    &__main-nav {
+      background-color: var(--color-transparent-light-1);
+      border-radius: 5rem;
+
+      position: relative;
+
+      * {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+      }
+
+      > li {
+        > a {
+          position: relative;
+          padding: 1.5rem;
+          //   display: flex;
+          z-index: 1;
+          padding: 2rem;
+        }
+        &:last-child {
+          margin-left: 2rem;
+          background-color: var(--color-primary);
+          border-radius: 5rem;
+        }
+
+        &:not(:last-child) > a::after {
+          position: absolute;
+          right: 0;
+          z-index: 1;
+          //  content: "\f107";
+          content: "\f0d7";
+          font-family: FontAwesome;
+          font-weight: 900;
+          color: var(--color-grey-dark-2);
+        }
+        //submenu
+        li > a {
+          color: #fff;
+        }
+      }
+
+      //submenu
+      .megamenu {
+        position: absolute;
+        top: 115%;
+        left: 0;
+        right: 0;
+        background: var(--color-transparent-dark-1);
+        opacity: 0;
+        visibility: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        border-radius: 0.5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+
+        &--divider {
+          width: 100%;
+          justify-content: space-between;
+          margin-bottom: 1.5rem;
+          background-color: var(--color-transparent-light-1);
+          padding: 0.7rem 1rem;
+          border-radius: 0.5rem;
+
+          > div {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    li:hover .megamenu {
+      visibility: visible;
+      opacity: 1;
+      top: 100%;
+      transition: all 0.3s ease;
+
+      .megamenu-group {
+        column-count: 3;
+        display: unset;
+        width: 100%;
+        margin-bottom: 1.5rem;
+
+        li {
+          padding: 1rem 1rem;
+          display: block;
+          border-radius: 2.2rem;
+          transition: all 0.5s ease-in-out;
+
+          &:hover {
+            background-color: var(--color-primary-dark);
+          }
+        }
+        &--bottom {
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          padding: 1.5rem 0;
+
+          a {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.8rem;
+            align-items: center;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .user-area {
+    display: flex;
+    align-items: baseline;
+
+    &__cart {
+      margin-right: 1.5rem;
+    }
+
+    &__user {
+      background-color: var(--color-transparent-light-1);
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+    }
+  }
+}
+
+.hero {
+  background: url(/natural-material-stationery-900.jpg);
+
+  background-size: cover;
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
