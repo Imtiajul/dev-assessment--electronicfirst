@@ -41,11 +41,84 @@
       }
     }
 
+    .search-navbar {
+      position: relative;
+
+      &__button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 100;
+
+        button {
+          padding: 1.65rem;
+          outline: none;
+          border: none;
+          background-color: var(--color-primary);
+          border-radius: 4rem;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.9, 0, 0.3, 0.9);
+        }
+      }
+      &__search-box {
+        position: absolute;
+        right: 2rem;
+        height: 100%;
+        width: 0;
+        opacity: 0;
+        transition: width 0.3s cubic-bezier(0.9, 0, 0.3, 0.9);
+
+        input {
+          border: none;
+          width: 100%;
+          height: 100%;
+          font-size: 1.6rem;
+          border-radius: 3.5rem;
+          transition: width 0.3s cubic-bezier(0.9, 0, 0.3, 0.9);
+          background-color: var(--color-primary);
+          color: #fff;
+          font-weight: 600;
+          
+          padding: 1rem 1rem;
+        }
+        input::placeholder {
+          color: #fff;
+          font-weight: 600;
+        }
+        input:focus-visible {
+          outline: none;
+          box-shadow: 0 3px 1.5rem 1rem rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      // adjacent class when search button is clicked
+      &.show {
+        .nav-area__main-nav {
+          li {
+            opacity: 0;
+            transition: all 0.3s;
+
+            &:nth-child(odd) {
+              transform: translateY(100%);
+            }
+            &:nth-child(even) {
+              transform: translateY(-100%);
+            }
+          }
+        }
+        .search-navbar__search-box {
+          width: calc(100% - 2rem);
+          opacity: 1;
+          transition: width 0.3s cubic-bezier(0.9, 0, 0.3, 0.9);
+        }
+      }
+    }
     &__main-nav {
       background-color: var(--color-transparent-light-1);
       border-radius: 5rem;
-
       position: relative;
+      padding-right: 7rem;
 
       * {
         font-size: 1.6rem;
@@ -54,17 +127,14 @@
       }
 
       > li {
+        opacity: 1;
+        transition: all 0.3s 0.3s;
         > a {
           position: relative;
           padding: 1.5rem;
           //   display: flex;
           z-index: 1;
           padding: 2rem;
-        }
-        &:last-child {
-          margin-left: 2rem;
-          background-color: var(--color-primary);
-          border-radius: 5rem;
         }
 
         &:not(:last-child) > a::after {
@@ -78,8 +148,10 @@
           color: var(--color-grey-dark-2);
         }
         //submenu
-        li > a {
-          color: #fff;
+        li {
+          > a {
+            color: #fff;
+          }
         }
       }
 
@@ -184,4 +256,5 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75vh);
 }
