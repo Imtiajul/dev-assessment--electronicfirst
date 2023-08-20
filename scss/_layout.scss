@@ -1,7 +1,7 @@
-$bp_larger: 75em; // 1200px
-$bp_large: 68.75em; // 1100px
-$bp_medium: 56.25em; // 900px
-$bp_small: 31.25em; // 500px
+// $bp_larger: 75em; // 1200px
+// $bp_large: 68.75em; // 1100px
+// $bp_medium: 56.25em; // 900px
+// $bp_small: 31.25em; // 500px
 
 .container {
   max-width: 120rem;
@@ -30,8 +30,14 @@ $bp_small: 31.25em; // 500px
 
 
 h1 { 
-   font-size: 3.5rem;
-   color: white;
+   font-size: 4rem;
+   color: var(--color-grey-dark-1);
+  //  margin-left: 15rem;
+
+  @media screen and (max-width:$bp_medium) {
+    font-size: 3rem;
+    text-align: center;
+  }
 }
 
 .py-3{

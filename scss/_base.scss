@@ -27,7 +27,6 @@
   --color-transparent-light-1: #cccccc;
   --color-transparent-dark-1: #424242b0;
 
-
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
   --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.6);
 
@@ -38,6 +37,17 @@ $bp_larger: 75em; // 1200px
 $bp_large: 68.75em; // 1100px
 $bp_medium: 56.25em; // 900px
 $bp_small: 31.25em; // 500px
+
+$transition: all 300ms ease-in-out;
+$font-display: "Josefin Sans";
+
+%box-shadow {
+  box-shadow: 0rem 0rem 1rem rgba(var(--color-grey-dark-2), 0.25);
+}
+
+%box-shadow-hover {
+  box-shadow: 0.1rem 0.3rem 1.3rem rgba(var(--color-grey-dark-2), 0.4);
+}
 
 * {
   margin: 0;

@@ -8,11 +8,25 @@
   align-content: baseline;
   justify-content: space-between;
 
+  @media screen and (max-width: 37.5em) {
+    flex-direction: column;;
+    align-items: center;
+
+    > *:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
   .logo {
     max-width: 10rem;
+    display: flex;
+    align-items: center;
 
     img {
       max-width: 22rem;
+
+      @media screen and (max-width: $bp_medium) {
+        max-width: 11.5rem;
+      }
     }
   }
 
@@ -39,6 +53,10 @@
       a {
         color: var(--color-grey-dark-1);
       }
+
+      @media screen and (max-width: $bp_medium) {
+        display: none;
+      }
     }
 
     .search-navbar {
@@ -52,13 +70,17 @@
         z-index: 100;
 
         button {
-          padding: 1.65rem;
+          padding: 1.6rem;
           outline: none;
           border: none;
           background-color: var(--color-primary);
           border-radius: 4rem;
           cursor: pointer;
           transition: all 0.3s cubic-bezier(0.9, 0, 0.3, 0.9);
+
+          @media screen and (max-width: $bp_medium) {
+            padding: 0.5rem;
+          }
         }
       }
       &__search-box {
@@ -79,8 +101,9 @@
           background-color: var(--color-primary);
           color: #fff;
           font-weight: 600;
-          
+
           padding: 1rem 1rem;
+          padding-left: 2rem;
         }
         input::placeholder {
           color: #fff;
@@ -119,6 +142,10 @@
       border-radius: 5rem;
       position: relative;
       padding-right: 7rem;
+      
+      @media screen and (max-width: $bp_medium) {
+        padding-right: 5rem;
+      }
 
       * {
         font-size: 1.6rem;
@@ -135,6 +162,10 @@
           //   display: flex;
           z-index: 1;
           padding: 2rem;
+
+          @media screen and (max-width: $bp_medium) {
+            padding: 1rem;
+          }
         }
 
         &:not(:last-child) > a::after {
@@ -232,6 +263,8 @@
   .user-area {
     display: flex;
     align-items: baseline;
+    justify-items: center
+    ;
 
     &__cart {
       margin-right: 1.5rem;
@@ -241,7 +274,36 @@
       background-color: var(--color-transparent-light-1);
       padding: 0.5rem 1rem;
       border-radius: 1rem;
+      justify-self: center;
     }
+
+    
+    @media screen and (max-width: $bp_medium) {
+      align-items: center;
+      img {
+        width: 50%;
+        height: 50%;
+      }
+
+      &__user, &__cart {
+        display: flex;
+        justify-content: center;
+      }
+
+      &__user {
+        padding: 0.5rem 0;
+      }
+
+      &__cart {
+        margin-right: 0;
+      }
+    }
+
+    @media screen and (max-width: $bp_medium) {
+      align-self: flex-end;
+      margin-top: 0.5rem;
+    }
+
   }
 }
 
@@ -256,5 +318,64 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 75vh);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80vh);
+}
+
+// feature box home
+
+%transition {
+  transition: all 300ms ease-in-out;
+}
+
+.btn {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1.8rem 3rem;
+  cursor: pointer;
+  @extend %transition;
+}
+
+.feature-box {
+  margin: 7rem 0;
+
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+}
+
+.homes {
+  // background-color: $color-grey-dark-2;
+  // grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 5rem;
+}
+
+.home {
+  background-color: var(--color-grey-light-3);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 3.5rem;
+  @extend %box-shadow;
+  border-radius: 1rem;
+
+  &__img {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    z-index: 2;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__btn {
+    grid-column: 1 / -1;
+  }
 }
