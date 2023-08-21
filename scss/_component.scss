@@ -276,6 +276,12 @@
       justify-self: center;
     }
 
+    @media screen and (max-width: 37.5em) {
+      position: absolute;
+      right: 2rem;
+      align-self: flex-end;
+    }
+
     @media screen and (max-width: $bp_medium) {
       align-items: center;
       align-self: center;
@@ -298,12 +304,6 @@
       &__cart {
         margin-right: 0;
       }
-    }
-
-    @media screen and (max-width: 37.5em) {
-      position: absolute;
-
-      align-self: flex-end;
     }
   }
 }
