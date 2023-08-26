@@ -9,15 +9,25 @@
 
   <script src="https://kit.fontawesome.com/58ee1365c6.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="style.scss">
 </head>
 
 <body>
-  <header class="header-area">
+  <header class="header-area navigation">
     <div class="logo">
       <a href="">
         <img src="./logo.png" alt="Logo">
       </a>
     </div>
+
+    <!-- <input type="checkbox" class="navigation__checkbox collapsed" id="navi-toggle" data-toggle="collapse"
+      data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+      aria-label="Toggle navigation">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label> -->
+
     <nav class="nav-area">
       <ul class="nav-area__top-nav">
         <li><a href="">Trending</a></li>
@@ -28,7 +38,7 @@
       <div class="search-navbar">
         <div class="search-navbar__button">
           <button class="search-toggle" id="search-toggle" data-selector="header-nav">
-            <img src="/public/search-32.png" width="32" alt="search icon">
+            &nbsp;
           </button>
         </div>
         <ul class="nav-area__main-nav">
@@ -93,7 +103,6 @@
           <input type="text" class="text search-input" placeholder="Ask me anything" />
         </form>
       </div>
-
     </nav>
     <div class="user-area">
       <div class="user-area__cart">
